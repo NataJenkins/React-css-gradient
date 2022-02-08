@@ -9,7 +9,7 @@ import {
   faLongArrowAltRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircle as farCircle } from "@fortawesome/free-regular-svg-icons";
-
+import hexToRgba from "hex-to-rgba";
 import "./sidebar.css";
 
 function cssCopied(css) {
@@ -32,63 +32,66 @@ export default function Sidebar({
   const dirStyle = radial ? "radial" : "linear";
   const [showColorPicker1, setShowColorPicker1] = useState(false);
   const [showColorPicker2, setShowColorPicker2] = useState(false);
+  const [hex, setHex] = useState(true);
+  let colorFormat1 = hex ? color1 : hexToRgba(color1);
+  let colorFormat2 = hex ? color2 : hexToRgba(color2);
   let css;
 
   const gradDirStyle = () => {
     switch (direction) {
       case "up":
-        css = `background:  ${color1};
-        background: -webkit-${dirStyle}-gradient(top, ${color1}, ${color2});
-        background: -moz-${dirStyle}-gradient(top, ${color1}, ${color2});
-        background: ${dirStyle}-gradient(to bottom, ${color1}, ${color2});`;
+        css = `background:  ${colorFormat1};
+        background: -webkit-${dirStyle}-gradient(top, ${colorFormat1}, ${colorFormat2});
+        background: -moz-${dirStyle}-gradient(top, ${colorFormat1}, ${colorFormat2});
+        background: ${dirStyle}-gradient(to bottom, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "dwn":
-        css = `background: ${color1},
-          background: -webkit-${dirStyle}-gradient(bottom, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(bottom, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to top, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1},
+          background: -webkit-${dirStyle}-gradient(bottom, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(bottom, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to top, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "lft":
-        css = `background: ${color1};
-          background: -webkit-${dirStyle}-gradient(left, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(left, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to right, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1};
+          background: -webkit-${dirStyle}-gradient(left, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(left, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to right, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "rig":
-        css = `background: ${color1};
-          background: -webkit-${dirStyle}-gradient(right, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(right, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to left, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1};
+          background: -webkit-${dirStyle}-gradient(right, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(right, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to left, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "rad":
-        css = `background: ${color1}
-          background: -webkit-radial-gradient(center, ${color1}, ${color2});
-          background: -moz-radial-gradient(center, ${color1}, ${color2});
-          background: radial-gradient(ellipse at center, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1}
+          background: -webkit-radial-gradient(center, ${colorFormat1}, ${colorFormat2});
+          background: -moz-radial-gradient(center, ${colorFormat1}, ${colorFormat2});
+          background: radial-gradient(ellipse at center, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "tl":
-        css = `background: ${color1}
-          background: -webkit-${dirStyle}-gradient(top left, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(top left, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to bottom right, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1}
+          background: -webkit-${dirStyle}-gradient(top left, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(top left, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to bottom right, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "tr":
-        css = `background: ${color1}
-          background: -webkit-${dirStyle}-gradient(top right, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(top right, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to bottom left, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1}
+          background: -webkit-${dirStyle}-gradient(top right, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(top right, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to bottom left, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "bl":
-        css = `background: ${color1}
-          background: -webkit-${dirStyle}-gradient(bottom left, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(bottom left, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to top right, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1}
+          background: -webkit-${dirStyle}-gradient(bottom left, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(bottom left, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to top right, ${colorFormat1}, ${colorFormat2});`;
         break;
       case "br":
-        css = `background: ${color1}
-          background: -webkit-${dirStyle}-gradient(bottom right, ${color1}, ${color2});
-          background: -moz-${dirStyle}-gradient(bottom right, ${color1}, ${color2});
-          background: ${dirStyle}-gradient(to top left, ${color1}, ${color2});`;
+        css = `background: ${colorFormat1}
+          background: -webkit-${dirStyle}-gradient(bottom right, ${colorFormat1}, ${colorFormat2});
+          background: -moz-${dirStyle}-gradient(bottom right, ${colorFormat1}, ${colorFormat2});
+          background: ${dirStyle}-gradient(to top left, ${colorFormat1}, ${colorFormat2});`;
         break;
       default:
         console.log("error");
@@ -213,8 +216,8 @@ export default function Sidebar({
           <label>Output format</label>
         </p>
         <div className="d-flex">
-          <Button txt="Hex" />
-          <Button txt="Rgba" />
+          <Button txt="Hex" onClick={() => setHex(true)} />
+          <Button txt="Rgba" onClick={() => setHex(false)} />
         </div>
 
         <Button onClick={() => cssCopied(css)} txt="Get css" big />
