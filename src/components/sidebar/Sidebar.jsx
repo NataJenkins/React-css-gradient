@@ -83,8 +83,11 @@ export default function Sidebar() {
             ></button>
             {showColorPicker1 && (
               <ChromePicker
+                name="colorPicker"
                 color={color1}
-                onChange={(updatedColor1) => setColor1(updatedColor1.hex)}
+                onChange={(updatedColor1) => {
+                  setColor1(updatedColor1.hex);
+                }}
               />
             )}
           </div>
@@ -98,6 +101,7 @@ export default function Sidebar() {
             ></button>
             {showColorPicker2 && (
               <ChromePicker
+                name="colorPicker"
                 color={color2}
                 onChange={(updatedColor2) => setColor2(updatedColor2.hex)}
               />

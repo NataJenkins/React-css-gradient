@@ -9,6 +9,11 @@
   height: 32px;
   margin: 3px;
 }
+
+.chrome-picker {
+  position: absolute;
+}
+
 .sideBar {
   position: fixed;
   margin: 0;
