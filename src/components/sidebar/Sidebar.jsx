@@ -12,7 +12,13 @@ import { faCircle as farCircle } from "@fortawesome/free-regular-svg-icons";
 
 import "./sidebar.css";
 
-export default function Sidebar({ color1, color2, setColor1, setColor2 }) {
+export default function Sidebar({
+  color1,
+  color2,
+  setColor1,
+  setColor2,
+  changeDirection,
+}) {
   const [showColorPicker1, setShowColorPicker1] = useState(false);
   const [showColorPicker2, setShowColorPicker2] = useState(false);
   const [radial, setRadial] = useState(true);
@@ -45,33 +51,50 @@ export default function Sidebar({ color1, color2, setColor1, setColor2 }) {
         </p>
         <div className="d-flex">
           <Button
+            onClick={() => changeDirection("tl")}
             icn={
               <FontAwesomeIcon className="diagonal" icon={faLongArrowAltLeft} />
             }
           />
-          <Button icn={<FontAwesomeIcon icon={faLongArrowAltUp} />} />
           <Button
+            onClick={() => changeDirection("up")}
+            icn={<FontAwesomeIcon icon={faLongArrowAltUp} />}
+          />
+          <Button
+            onClick={() => changeDirection("tr")}
             icn={
               <FontAwesomeIcon className="diagonal" icon={faLongArrowAltUp} />
             }
           />
         </div>
         <div className="d-flex">
-          <Button icn={<FontAwesomeIcon icon={faLongArrowAltLeft} />} />
           <Button
+            onClick={() => changeDirection("lft")}
+            icn={<FontAwesomeIcon icon={faLongArrowAltLeft} />}
+          />
+          <Button
+            onClick={() => changeDirection("rad")}
             icn={<FontAwesomeIcon icon={farCircle} />}
             hidden={!radial ? true : undefined}
           />
-          <Button icn={<FontAwesomeIcon icon={faLongArrowAltRight} />} />
+          <Button
+            onClick={() => changeDirection("rig")}
+            icn={<FontAwesomeIcon icon={faLongArrowAltRight} />}
+          />
         </div>
         <div className="d-flex">
           <Button
+            onClick={() => changeDirection("bl")}
             icn={
               <FontAwesomeIcon className="diagonal" icon={faLongArrowAltDown} />
             }
           />
-          <Button icn={<FontAwesomeIcon icon={faLongArrowAltDown} />} />
           <Button
+            onClick={() => changeDirection("dwn")}
+            icn={<FontAwesomeIcon icon={faLongArrowAltDown} />}
+          />
+          <Button
+            onClick={() => changeDirection("br")}
             icn={
               <FontAwesomeIcon
                 className="diagonal"
