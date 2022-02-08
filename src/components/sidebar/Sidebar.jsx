@@ -12,16 +12,91 @@ import { faCircle as farCircle } from "@fortawesome/free-regular-svg-icons";
 
 import "./sidebar.css";
 
+function cssCopied(css) {
+  navigator.clipboard.writeText(css);
+  setTimeout(function () {
+    alert("Copied to clipbord");
+  }, 100);
+}
+
 export default function Sidebar({
   color1,
   color2,
   setColor1,
   setColor2,
+  radial,
+  changeStyle,
   changeDirection,
+  direction,
 }) {
+  const dirStyle = radial ? "radial" : "linear";
   const [showColorPicker1, setShowColorPicker1] = useState(false);
   const [showColorPicker2, setShowColorPicker2] = useState(false);
-  const [radial, setRadial] = useState(true);
+  let css;
+
+  const gradDirStyle = () => {
+    switch (direction) {
+      case "up":
+        css = `background:  ${color1};
+        background: -webkit-${dirStyle}-gradient(top, ${color1}, ${color2});
+        background: -moz-${dirStyle}-gradient(top, ${color1}, ${color2});
+        background: ${dirStyle}-gradient(to bottom, ${color1}, ${color2});`;
+        break;
+      case "dwn":
+        css = `background: ${color1},
+          background: -webkit-${dirStyle}-gradient(bottom, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(bottom, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to top, ${color1}, ${color2});`;
+        break;
+      case "lft":
+        css = `background: ${color1};
+          background: -webkit-${dirStyle}-gradient(left, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(left, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to right, ${color1}, ${color2});`;
+        break;
+      case "rig":
+        css = `background: ${color1};
+          background: -webkit-${dirStyle}-gradient(right, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(right, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to left, ${color1}, ${color2});`;
+        break;
+      case "rad":
+        css = `background: ${color1}
+          background: -webkit-radial-gradient(center, ${color1}, ${color2});
+          background: -moz-radial-gradient(center, ${color1}, ${color2});
+          background: radial-gradient(ellipse at center, ${color1}, ${color2});`;
+        break;
+      case "tl":
+        css = `background: ${color1}
+          background: -webkit-${dirStyle}-gradient(top left, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(top left, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to bottom right, ${color1}, ${color2});`;
+        break;
+      case "tr":
+        css = `background: ${color1}
+          background: -webkit-${dirStyle}-gradient(top right, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(top right, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to bottom left, ${color1}, ${color2});`;
+        break;
+      case "bl":
+        css = `background: ${color1}
+          background: -webkit-${dirStyle}-gradient(bottom left, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(bottom left, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to top right, ${color1}, ${color2});`;
+        break;
+      case "br":
+        css = `background: ${color1}
+          background: -webkit-${dirStyle}-gradient(bottom right, ${color1}, ${color2});
+          background: -moz-${dirStyle}-gradient(bottom right, ${color1}, ${color2});
+          background: ${dirStyle}-gradient(to top left, ${color1}, ${color2});`;
+        break;
+      default:
+        console.log("error");
+    }
+  };
+
+  gradDirStyle();
+
   return (
     <div className="sideBar">
       <header>
@@ -32,18 +107,8 @@ export default function Sidebar({
           <label>Style</label>
         </p>
         <div className="d-flex">
-          <Button
-            txt="Linear"
-            onClick={() => {
-              setRadial(false);
-            }}
-          />
-          <Button
-            txt="Radial"
-            onClick={() => {
-              setRadial(true);
-            }}
-          />
+          <Button txt="Linear" onClick={() => changeStyle(false)} />
+          <Button txt="Radial" onClick={() => changeStyle(true)} />
         </div>
 
         <p className="lbl">
@@ -152,7 +217,7 @@ export default function Sidebar({
           <Button txt="Rgba" />
         </div>
 
-        <Button txt="Get CSS" big />
+        <Button onClick={() => cssCopied(css)} txt="Get css" big />
       </div>
 
       <footer>
