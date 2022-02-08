@@ -14,9 +14,10 @@ import "./sidebar.css";
 
 export default function Sidebar() {
   const [color1, setColor1] = useState("#9900EF");
-  const [showColorPicker1, setShowColorPicker1] = useState(false);
   const [color2, setColor2] = useState("#2F95BC");
+  const [showColorPicker1, setShowColorPicker1] = useState(false);
   const [showColorPicker2, setShowColorPicker2] = useState(false);
+  const [radial, setRadial] = useState(true);
   return (
     <div className="sideBar">
       <header>
@@ -27,8 +28,18 @@ export default function Sidebar() {
           <label>Style</label>
         </p>
         <div className="d-flex">
-          <Button txt="Linear" />
-          <Button txt="Radial" />
+          <Button
+            txt="Linear"
+            onClick={() => {
+              setRadial(false);
+            }}
+          />
+          <Button
+            txt="Radial"
+            onClick={() => {
+              setRadial(true);
+            }}
+          />
         </div>
 
         <p className="lbl">
@@ -49,7 +60,10 @@ export default function Sidebar() {
         </div>
         <div className="d-flex">
           <Button icn={<FontAwesomeIcon icon={faLongArrowAltLeft} />} />
-          <Button icn={<FontAwesomeIcon icon={farCircle} />} />
+          <Button
+            icn={<FontAwesomeIcon icon={farCircle} />}
+            hidden={!radial ? true : undefined}
+          />
           <Button icn={<FontAwesomeIcon icon={faLongArrowAltRight} />} />
         </div>
         <div className="d-flex">
