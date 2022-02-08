@@ -12,9 +12,7 @@ import { faCircle as farCircle } from "@fortawesome/free-regular-svg-icons";
 
 import "./sidebar.css";
 
-export default function Sidebar() {
-  const [color1, setColor1] = useState("#9900EF");
-  const [color2, setColor2] = useState("#2F95BC");
+export default function Sidebar({ color1, color2, setColor1, setColor2 }) {
   const [showColorPicker1, setShowColorPicker1] = useState(false);
   const [showColorPicker2, setShowColorPicker2] = useState(false);
   const [radial, setRadial] = useState(true);

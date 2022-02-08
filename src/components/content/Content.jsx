@@ -1,10 +1,17 @@
 import React from "react";
 import "./content.css";
 
-export default function Content() {
+export default function Content({ color1, color2 }) {
   return (
     <div className="content">
-      <div className="gradient"></div>
+      <div
+        className="gradient"
+        style={{
+          background: `-webkit-linear-gradient(top left, ${color1}, ${color2})`,
+          background: `-moz-linear-gradient(top left, ${color1}, ${color2})`,
+          background: `linear-gradient(to bottom right, ${color1}, ${color2})`,
+        }}
+      ></div>
       <div className="info">
         <section className="about">
           <h2>About CSS Gradients</h2>
