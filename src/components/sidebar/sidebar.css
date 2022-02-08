@@ -23,6 +23,8 @@
   background-color: #fff;
   padding: 20px;
   box-sizing: border-box;
+
+  box-shadow: 1px 0px 20px 0px rgba(136, 136, 136, 0.575);
 }
 
 footer {
