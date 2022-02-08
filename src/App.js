@@ -8,7 +8,6 @@ function App() {
   const [color2, setColor2] = useState("#2F95BC");
   const [direction, setDirection] = useState("up");
   const [radial, setRadial] = useState(true);
-
   return (
     <div className="App">
       <Sidebar
@@ -16,7 +15,6 @@ function App() {
         setColor1={setColor1}
         color2={color2}
         setColor2={setColor2}
-        direction={direction}
         radial={radial}
         changeStyle={(rad) => setRadial(rad)}
         changeDirection={(dir) => setDirection(dir)}
