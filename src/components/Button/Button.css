@@ -5,6 +5,7 @@
   width: 100px;
   height: 32px;
   margin: 3px;
+  cursor: pointer;
 }
 
 .bigBtn {
@@ -15,6 +16,7 @@
   height: 32px;
   margin-top: 50px;
   display: block;
+  cursor: pointer;
 }
 
 .hide {

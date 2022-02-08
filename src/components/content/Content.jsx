@@ -98,9 +98,10 @@ export default function Content({ color1, color2, radial, direction }) {
             <span>Monochrome Gradient backgrounds</span>
           </p>
         </section>
+        <hr />
         <section className="whatIsACssGradient">
           <h2>WHAT IS A CSS GRADIENT?</h2>
-          <p>
+          <p className="lb">
             CSS3 gradients let you display smooth transitions between two or
             more specified colors. Earlier, you had to use images for these
             effects. However, by using CSS3 gradients you can reduce download
@@ -124,7 +125,7 @@ export default function Content({ color1, color2, radial, direction }) {
             </a>
           </p>
 
-          <p>
+          <p className="lb">
             The &lt;gradient&gt; CSS data type denotes a CSS &lt;image&gt; made
             of a progressive transition between two or more colors. A CSS
             gradient is not a CSS &lt;color&gt; but an image with no intrinsic
@@ -155,10 +156,11 @@ export default function Content({ color1, color2, radial, direction }) {
             </a>
           </p>
         </section>
+        <hr />
         <section className="linearGradient">
           <h2>CSS LINEAR GRADIENT</h2>
           <h3>What is a CSS Linear Gradient?</h3>
-          <p>
+          <p className="lb">
             A linear gradient is created by specifying a straight gradient line,
             and then several colors placed along that line. The image is
             constructed by creating an infinite canvas and painting it with
@@ -181,10 +183,11 @@ export default function Content({ color1, color2, radial, direction }) {
             <a href="https://www.css-gradient.com/linear-gradients">here</a>{" "}
           </p>
         </section>
+        <hr />
         <section className="radialGradients">
           <h2>CSS RADIAL GRADIENTS</h2>
           <h3>What is a CSS Radial Gradient</h3>
-          <p>
+          <p className="lb">
             In a radial gradient, rather than colors smoothly fading from one
             side of the gradient box to the other as with linear gradients, they
             instead emerge from a single point and smoothly spread outward in a
@@ -215,6 +218,7 @@ export default function Content({ color1, color2, radial, direction }) {
             </a>{" "}
           </p>
         </section>
+        <hr />
         <section className="cssTextGradients">
           <h2>CSS TEXT GRADIENTS</h2>
           <h3>What is a Text Gradient</h3>
@@ -230,6 +234,7 @@ export default function Content({ color1, color2, radial, direction }) {
             <a href="https://www.css-gradient.com/text-gradients">here</a>{" "}
           </div>
         </section>
+        <hr></hr>
         <section className="moreAboutGradients">
           <h2> WHERE CAN I FIND MORE ABOUT GRADIENTS</h2>
           <div>

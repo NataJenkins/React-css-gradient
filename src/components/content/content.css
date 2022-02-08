@@ -15,3 +15,16 @@ section {
   max-width: 600px;
   margin: 90px auto;
 }
+hr {
+  border: 0;
+  height: 0;
+  border-top: 2px solid #f1f4f8;
+  max-width: 600px;
+}
+a {
+  color: #3d4853;
+}
+.lb {
+  border-left: 8px solid #f1f4f8;
+  padding-left: 25px;
+}
