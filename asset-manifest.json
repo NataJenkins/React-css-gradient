@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/%7BReact-css-gradient%7D/static/css/main.fecd86d8.css",
+    "main.js": "/%7BReact-css-gradient%7D/static/js/main.23068a7e.js",
+    "index.html": "/%7BReact-css-gradient%7D/index.html",
+    "main.fecd86d8.css.map": "/%7BReact-css-gradient%7D/static/css/main.fecd86d8.css.map",
+    "main.23068a7e.js.map": "/%7BReact-css-gradient%7D/static/js/main.23068a7e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fecd86d8.css",
+    "static/js/main.23068a7e.js"
+  ]
+}
