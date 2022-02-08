@@ -1,10 +1,10 @@
 import React from "react";
 import "./Button.css";
 
-export default function Button(btn) {
+export default function Button({ txt, icn, cName }) {
   return (
     <div>
-      <button className="button">Hola</button>
+      <button className="button">{txt ? txt : icn}</button>
     </div>
   );
 }
