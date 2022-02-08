@@ -1,19 +1,38 @@
 .sideBar {
   position: fixed;
   margin: 0;
-  height: 95%;
+  height: 100%;
   width: 350px;
   overflow-y: auto;
   background-color: palevioletred;
-  padding: 30px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 footer {
   position: fixed;
+  display: block;
+  box-sizing: border-box;
   width: 350px;
+  height: 160px;
   bottom: 0;
+  left: 0;
+  padding: 10px 32px;
+  background: #fff;
+  font-size: 14px;
 }
 
+.options {
+  margin-bottom: 160px;
+}
+
+.lbl {
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
 .diagonal {
   transform: rotate(45deg);
+}
+.d-flex {
+  display: flex;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
+import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLongArrowAltUp,
@@ -14,48 +15,81 @@ import "./sidebar.css";
 export default function Sidebar() {
   return (
     <div className="sideBar">
-      <h1>CSS GRADIENT GENERATOR</h1>
+      <header>
+        <h1>CSS GRADIENT GENERATOR</h1>
+      </header>
       <div className="options">
-        <label>Style</label>
-        <Button txt="Linear" />
-        <Button txt="Radial" />
-        <label>Direction</label>
-        <Button
-          icn={
-            <FontAwesomeIcon className="diagonal" icon={faLongArrowAltLeft} />
-          }
-        />
-        <Button icn={<FontAwesomeIcon icon={faLongArrowAltUp} />} />
-        <Button
-          icn={<FontAwesomeIcon className="diagonal" icon={faLongArrowAltUp} />}
-        />
-        <Button icn={<FontAwesomeIcon icon={faLongArrowAltLeft} />} />
-        <Button icn={<FontAwesomeIcon icon={farCircle} />} />
-        <Button icn={<FontAwesomeIcon icon={faLongArrowAltRight} />} />
-        <Button
-          icn={
-            <FontAwesomeIcon className="diagonal" icon={faLongArrowAltDown} />
-          }
-        />
-        <Button icn={<FontAwesomeIcon icon={faLongArrowAltDown} />} />
-        <Button
-          icn={
-            <FontAwesomeIcon className="diagonal" icon={faLongArrowAltRight} />
-          }
-        />
+        <p className="lbl">
+          <label>Style</label>
+        </p>
+        <div className="d-flex">
+          <Button txt="Linear" />
+          <Button txt="Radial" />
+        </div>
+
+        <p className="lbl">
+          <label>Direction</label>
+        </p>
+        <div className="d-flex">
+          <Button
+            icn={
+              <FontAwesomeIcon className="diagonal" icon={faLongArrowAltLeft} />
+            }
+          />
+          <Button icn={<FontAwesomeIcon icon={faLongArrowAltUp} />} />
+          <Button
+            icn={
+              <FontAwesomeIcon className="diagonal" icon={faLongArrowAltUp} />
+            }
+          />
+        </div>
+        <div className="d-flex">
+          <Button icn={<FontAwesomeIcon icon={faLongArrowAltLeft} />} />
+          <Button icn={<FontAwesomeIcon icon={farCircle} />} />
+          <Button icn={<FontAwesomeIcon icon={faLongArrowAltRight} />} />
+        </div>
+        <div className="d-flex">
+          <Button
+            icn={
+              <FontAwesomeIcon className="diagonal" icon={faLongArrowAltDown} />
+            }
+          />
+          <Button icn={<FontAwesomeIcon icon={faLongArrowAltDown} />} />
+          <Button
+            icn={
+              <FontAwesomeIcon
+                className="diagonal"
+                icon={faLongArrowAltRight}
+              />
+            }
+          />
+        </div>
+
+        <p className="lbl">
+          <label>Colors</label>
+        </p>
+        <div className="d-flex">
+          <Button />
+          <Button />
+        </div>
+
+        <p className="lbl">
+          <label>Output format</label>
+        </p>
+        <div className="d-flex">
+          <Button txt="Hex" />
+          <Button txt="Rgba" />
+        </div>
+
+        <Button txt="Get CSS" big />
       </div>
-      <label>Colors</label>
-      <Button style="background-color: rgb(124, 150, 55);" />
-      <Button />
-      <label>Output format</label>
-      <Button txt="Hex" />
-      <Button txt="Rgba" />
-      {/*    <footer>
+
+      <footer>
         <p>Gradient Generator for Linear and Radial Css Color Gradients</p>
         <p>
           © 2021 CSS-GRADIENT.COM <br></br> Terms & Privacy - Contact
         </p>
-</footer>*/}
+      </footer>
     </div>
   );
 }
