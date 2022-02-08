@@ -1,0 +1,15 @@
+.sideBar {
+  position: fixed;
+  margin: 0;
+  height: 100%;
+  width: 350px;
+  overflow-y: auto;
+  background-color: palevioletred;
+  padding: 30px;
+}
+
+footer {
+  position: fixed;
+  width: 350px;
+  bottom: 0;
+}
