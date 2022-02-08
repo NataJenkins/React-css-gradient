@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
-import { Container, Row, Col } from "react-bootstrap";
+import { ChromePicker } from "react-color";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLongArrowAltUp,
@@ -13,6 +13,10 @@ import { faCircle as farCircle } from "@fortawesome/free-regular-svg-icons";
 import "./sidebar.css";
 
 export default function Sidebar() {
+  const [color1, setColor1] = useState("#9900EF");
+  const [showColorPicker1, setShowColorPicker1] = useState(false);
+  const [color2, setColor2] = useState("#2F95BC");
+  const [showColorPicker2, setShowColorPicker2] = useState(false);
   return (
     <div className="sideBar">
       <header>
@@ -69,8 +73,36 @@ export default function Sidebar() {
           <label>Colors</label>
         </p>
         <div className="d-flex">
-          <Button />
-          <Button />
+          <div className="d-block">
+            <button
+              className="colorPicker"
+              onClick={() =>
+                setShowColorPicker1((showColorPicker1) => !showColorPicker1)
+              }
+              style={{ backgroundColor: color1 }}
+            ></button>
+            {showColorPicker1 && (
+              <ChromePicker
+                color={color1}
+                onChange={(updatedColor1) => setColor1(updatedColor1.hex)}
+              />
+            )}
+          </div>
+          <div className="d-block">
+            <button
+              className="colorPicker"
+              onClick={() =>
+                setShowColorPicker2((showColorPicker2) => !showColorPicker2)
+              }
+              style={{ backgroundColor: color2 }}
+            ></button>
+            {showColorPicker2 && (
+              <ChromePicker
+                color={color2}
+                onChange={(updatedColor2) => setColor2(updatedColor2.hex)}
+              />
+            )}
+          </div>
         </div>
 
         <p className="lbl">

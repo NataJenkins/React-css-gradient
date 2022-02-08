@@ -2,13 +2,20 @@
   display: none;
 }
 
+.colorPicker {
+  border: 2px solid black;
+  border-radius: 6px;
+  width: 100px;
+  height: 32px;
+  margin: 3px;
+}
 .sideBar {
   position: fixed;
   margin: 0;
   height: 100%;
   width: 350px;
   overflow-y: auto;
-  background-color: palevioletred;
+  background-color: #fff;
   padding: 20px;
   box-sizing: border-box;
 }
