@@ -5,25 +5,19 @@ import { SidebarStyle } from "./SidebarStyle";
 import { SidebarDirection } from "./SidebarDirection";
 import { SidebarColors } from "./SidebarColors";
 import { SidebarHex } from "./SidebarHex";
-import { gradientDirectionFullStyleBuilder } from "../utils";
+import { directions, gradientDirectionFullStyleBuilder } from "../utils";
+import { SidebarCopyClipboard } from "./SidebarCopyClipboard";
 
-export default function Sidebar({
-  color1,
-  color2,
-  setColor1,
-  setColor2,
-  useRadialStyle,
-  setUseRadialStyle,
-  changeDirection,
-  direction,
-}) {
-  const [styles, setStyles] = useState(undefined);
+export default function Sidebar({ gradientStyles, setGradientStyles }) {
+  const [useRadialStyle, setUseRadialStyle] = useState(true);
+  const isRadialStyle = useRadialStyle ? "radial" : "linear";
+  const [direction, setDirection] = useState(directions.top);
+  const [color1, setColor1] = useState("#9900EF");
+  const [color2, setColor2] = useState("#2F95BC");
   const [useHex, setUseHex] = useState(true);
 
-  const isRadialStyle = useRadialStyle ? "radial" : "linear";
   useEffect(() => {
-    // When direction changes run this and get styles.
-    setStyles(
+    setGradientStyles(
       gradientDirectionFullStyleBuilder(
         direction,
         isRadialStyle,
@@ -31,7 +25,7 @@ export default function Sidebar({
         useHex ? color2 : hexToRgba(color2)
       )
     );
-  }, [direction]);
+  }, [useRadialStyle, direction, color1, color2, useHex]);
 
   return (
     <div className="sideBar">
@@ -42,7 +36,7 @@ export default function Sidebar({
         <SidebarStyle setUseRadialStyle={setUseRadialStyle} />
         <SidebarDirection
           useRadialStyle={useRadialStyle}
-          changeDirection={changeDirection}
+          setDirection={setDirection}
         />
         <SidebarColors
           color1={color1}
@@ -50,7 +44,8 @@ export default function Sidebar({
           setColor1={setColor1}
           setColor2={setColor2}
         />
-        <SidebarHex setUseHex={setUseHex} styles={styles} />
+        <SidebarHex setUseHex={setUseHex} />
+        <SidebarCopyClipboard gradientStyles={gradientStyles} />
       </div>
 
       <footer>

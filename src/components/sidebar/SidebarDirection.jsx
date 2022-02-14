@@ -10,7 +10,7 @@ import {
 import { faCircle as farCircle } from "@fortawesome/free-regular-svg-icons";
 import { directions } from "../utils";
 
-export const SidebarDirection = ({ useRadialStyle, changeDirection }) => {
+export const SidebarDirection = ({ useRadialStyle, setDirection }) => {
   return (
     <Fragment>
       <p className="lbl">
@@ -18,48 +18,48 @@ export const SidebarDirection = ({ useRadialStyle, changeDirection }) => {
       </p>
       <div className="d-flex">
         <Button
-          onClick={() => changeDirection(directions.topLeft)}
+          onClick={() => setDirection(directions.topLeft)}
           icn={
             <FontAwesomeIcon className="diagonal" icon={faLongArrowAltLeft} />
           }
         />
         <Button
-          onClick={() => changeDirection(directions.top)}
+          onClick={() => setDirection(directions.top)}
           icn={<FontAwesomeIcon icon={faLongArrowAltUp} />}
         />
         <Button
-          onClick={() => changeDirection(directions.topRight)}
+          onClick={() => setDirection(directions.topRight)}
           icn={<FontAwesomeIcon className="diagonal" icon={faLongArrowAltUp} />}
         />
       </div>
       <div className="d-flex">
         <Button
-          onClick={() => changeDirection(directions.left)}
+          onClick={() => setDirection(directions.left)}
           icn={<FontAwesomeIcon icon={faLongArrowAltLeft} />}
         />
         <Button
-          onClick={() => changeDirection(directions.center)}
+          onClick={() => setDirection(directions.center)}
           icn={<FontAwesomeIcon icon={farCircle} />}
-          hidden={!useRadialStyle ? true : undefined}
+          hidden={!useRadialStyle}
         />
         <Button
-          onClick={() => changeDirection(directions.right)}
+          onClick={() => setDirection(directions.right)}
           icn={<FontAwesomeIcon icon={faLongArrowAltRight} />}
         />
       </div>
       <div className="d-flex">
         <Button
-          onClick={() => changeDirection(directions.bottomLeft)}
+          onClick={() => setDirection(directions.bottomLeft)}
           icn={
             <FontAwesomeIcon className="diagonal" icon={faLongArrowAltDown} />
           }
         />
         <Button
-          onClick={() => changeDirection(directions.bottom)}
+          onClick={() => setDirection(directions.bottom)}
           icn={<FontAwesomeIcon icon={faLongArrowAltDown} />}
         />
         <Button
-          onClick={() => changeDirection(directions.bottomRight)}
+          onClick={() => setDirection(directions.bottomRight)}
           icn={
             <FontAwesomeIcon className="diagonal" icon={faLongArrowAltRight} />
           }
