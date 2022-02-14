@@ -1,8 +1,8 @@
 import React from "react";
 import "./content.css";
 
-export default function Content({ color1, color2, radial, direction }) {
-  const dirStyle = radial ? "radial" : "linear";
+export default function Content({ color1, color2, useRadialStyle, direction }) {
+  const dirStyle = useRadialStyle ? "radial" : "linear";
   let gradStyle = {
     background: `-webkit-${dirStyle}-gradient(top, ${color1}, ${color2})`,
   };
@@ -63,7 +63,7 @@ export default function Content({ color1, color2, radial, direction }) {
 
         break;
       default:
-        console.log("error");
+      //  console.log("error");
     }
   };
 
