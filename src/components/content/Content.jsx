@@ -1,77 +1,20 @@
 import React from "react";
+import { gradientStyleToReactStyleObject } from "../utils";
 import "./content.css";
 
-export default function Content({ color1, color2, radial, direction }) {
-  const dirStyle = radial ? "radial" : "linear";
-  let gradStyle = {
-    background: `-webkit-${dirStyle}-gradient(top, ${color1}, ${color2})`,
-  };
-
-  const gradDirStyle = () => {
-    switch (direction) {
-      case "up":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(top, ${color1}, ${color2})`,
-        };
-        break;
-      case "dwn":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(bottom, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "lft":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(left, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "rig":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(right, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "rad":
-        gradStyle = {
-          background: `-webkit-radial-gradient(center, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "tl":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(top left, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "tr":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(top right, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "bl":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(bottom left, ${color1}, ${color2})`,
-        };
-
-        break;
-      case "br":
-        gradStyle = {
-          background: `-webkit-${dirStyle}-gradient(bottom right, ${color1}, ${color2})`,
-        };
-
-        break;
-      default:
-        console.log("error");
-    }
-  };
-
-  gradDirStyle();
-
+export default function Content({ gradientStyles }) {
   return (
     <div className="content">
-      <div className="gradient" style={gradStyle}></div>
+      <div
+        className="gradient"
+        style={
+          gradientStyles
+            ? gradientStyleToReactStyleObject(gradientStyles)
+            : {
+                background: `radial-gradient(ellipse at bottom, #9900EF, #2F95BC)`,
+              }
+        }
+      ></div>
       <div className="info">
         <section className="about">
           <h2>About CSS Gradients</h2>
